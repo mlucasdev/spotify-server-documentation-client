@@ -13,6 +13,10 @@ $color-light: #fff;
     flex-direction: $fL;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: $color-dark;
     color: $color-light;
