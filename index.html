@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/css/style.css" />
+    <title>Spotify Server Documentacion</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-left">
+          <a href="/">
+            <img src="./assets/images/logo.png" alt="" />
+          </a>
+        </div>
+
+        <div class="header-right">
+          <nav>
+            <ul>
+              <li>
+                <a href="#home">Home</a>
+              </li>
+              <li>
+                <a href="#user">User</a>
+              </li>
+              <li>
+                <a href="#profile">Profile</a>
+              </li>
+              <li>
+                <a href="#Playlist">Playlist</a>
+              </li>
+              <li>
+                <a href="#artist">Artist</a>
+              </li>
+              <li>
+                <a href="#admin">Admin</a>
+              </li>
+              <li>
+                <a href="#manager">Manager</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section id="home">
+      <div class="container">
+        <div class="home-description">
+          <h1>Spotify Server Documentacion</h1>
+          <p>
+            Este projeto foi desenvolvido no quinto módulo do curso de back-end
+            da Blue EdTech com foco em aprimorar nossas habilidades em criar uma
+            API que utilize TypeScript, NestJs, Prisma ORM e PostgreSQL. A
+            presente API tem como objetivo que um usuário utilize de
+            funcionalidades parecidas com as do Spotify e também possa criar
+            perfis, dependendo do plano em que ele "assina". Artistas também tem
+            suas próprias funcionalidades. Além disso também é possível que
+            administradores possam gerir a plataforma. <br />
+            Esta documentação visa apresentar como utilizar e testar nossa API
+            mostranto exemplos de como criar um usuário, ser autenticado, criar
+            perfis, playlists, etc. <br />
+            Caso tenho algum prolema, dúvida ou sujestão fique a vontade para
+            nos chamar no linkedin.<br />
+            <br />
+            Autores:
+            <a href="https://www.linkedin.com/in/mlucasdev/" target="_blank"
+              >Lucas Marques</a
+            >
+            e
+            <a
+              href="https://www.linkedin.com/in/gustavo-martins-681921229/"
+              target="_blank"
+              >Gustavo Martins</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="user" class="dark-medium sections">
+      <div class="container">
+        <div class="title">
+          <h1>Criando um usuário</h1>
+        </div>
+        <div class="content">
+          <div class="description">
+            <div class="text">
+              <p>
+                Primeiramente comece criando um novo usuário para acessar a
+                plataforma. Vá até 'user', e selecione a rota '/user/create'
+                para informar os dados do usuário. Preencha todos os campos com
+                dados válidos. Em 'userPlanId' você precisará informar um 'ID'
+                de algum plano de usuário (os planos servem para limitar o uso
+                de algumas funcionalidades da plataforma).
+              </p>
+            </div>
+            <div class="image">
+              <img src="./assets/images/user/user-create.png" alt="" />
+            </div>
+
+            <div class="text">
+              <p>
+                Vá até 'userPlanId' execute a rota GET '/user-plan', assim
+                buscará todos os planos de usuário disponível. Então selecione,
+                copie o 'ID' de algum plano e insira no campo 'userPlanId'.
+                Execute a rota 'user/create' com todos os dados preenchidos.
+              </p>
+            </div>
+            <div class="image">
+              <img src="./assets/images/user/response-user-plan.png" alt="" />
+            </div>
+
+            <div class="text">
+              <p>
+                Após criar um usuário é hora de fazer login. Insira seu email e
+                senha.
+              </p>
+            </div>
+            <div class="image">
+              <img src="./assets/images/user/login-user.PNG" alt="" />
+            </div>
+
+            <div class="text">
+              <p>
+                Selecione e copie apenas o 'TOKEN', nele contém os dados do
+                usuário criptografados.
+              </p>
+            </div>
+            <div class="image">
+              <img src="./assets/images/user/login-user-response.PNG" alt="" />
+            </div>
+
+            <div class="text">
+              <p>
+                Após copiar o 'TOKEN', vá até 'Authorize' no início da página.
+                Agora cole seu token no campo 'Value' e clique em 'Authorize'.
+                Agora você já está autenticado para continuar acessando as
+                outras rotas da plataforma.
+              </p>
+            </div>
+            <div class="image">
+              <img src="./assets/images/user/bearer-user.PNG" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile" class="dark-medium sections">
+      <div class="container">
+        <div class="title">
+          <h1>Criando um perfil para o usuário</h1>
+        </div>
+        <div class="content">
+          <div class="description">
+            <div class="text">
+              <p>
+                Após estar autenticado, vá até 'profile' e na rota
+                '/profile/create' insira um nome para o perfil e um link de uma
+                imagem que será a imagem do perfil e execute a rota.
+              </p>
+            </div>
+            <div class="image">
+              <img src="./assets/images/user/create-profile.PNG" alt="" />
+            </div>
+
+            <div class="text">
+              <p>
+                Na resposta da criação você verá o 'ID' do perfil criado, copie
+                este 'ID', pois será necessário.
+              </p>
+            </div>
+            <div class="image">
+              <img
+                src="./assets/images/user/create-profile-response.PNG"
+                alt=""
+              />
+            </div>
+
+            <div class="text">
+              <p>
+                Agora vá até 'auth' e na rota 'auth/sing-in-profile' insira o
+                'ID' do perfil que você tinha copiado,e execute a rota. Assim
+                será gerado um token JWT que contém as informações do perfil.
+                Sempre quando este perfil for criar uma playlist, favoritar uma
+                música, etc, não será necessário enviar novamente o id do perfil
+                que está criando algo, a API pegará essa informação direto do
+                token.<br />
+                Pensando em como será o front-end e seguindo o modelo que a
+                Netflix usa, após o usário fazer login, ele chegará na tela de
+                seus perfis (rota GET 'profile/all'), então quando escolher o
+                perfil em que quer entrar, executará esta rota
+                'auth/sing-in-profile' e após isso seria redirecionado para home
+                page do seu perfil (rota GET '/').
+              </p>
+            </div>
+            <div class="image">
+              <img src="./assets/images/user/login-profile.PNG" alt="" />
+            </div>
+
+            <div class="text">
+              <p>
+                Já com o 'TOKEN' na resposta, copie ele, pois será necessário
+                alterar o token antigo para o novo.
+              </p>
+            </div>
+            <div class="image">
+              <img
+                src="./assets/images/user/login-profile-response.PNG"
+                alt=""
+              />
+            </div>
+
+            <div class="text">
+              <p>
+                Volte novamente em 'Authorize' no topo da página, clique em
+                'Logout' e insira o novo token e clique em 'Authorize'. Esse
+                novo token contém as informações do usuário e também o id do
+                perfil que está usando a plataforma.
+              </p>
+            </div>
+            <div class="image">
+              <img src="./assets/images/user/bearer-profile.PNG" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="playlist" class="dark-medium sections">
+      <div class="container">
+        <div class="title">
+          <h1>Criando uma nova playlist</h1>
+        </div>
+        <div class="content">
+          <div class="description">
+            <div class="text">
+              <p>
+                Para criar uma playlist vá até 'playlist' na rota
+                '/playlist/create' e informe o nome da playlist, o link de uma
+                imagem para a capa dela, e defina o campo 'private' como 'true'
+                ou 'false'. Esse campo determina se a playlist vai ser privada,
+                nenhum outro usuário possa acessar ela além de quem criou, ou
+                pode ser uma playlist pública.
+              </p>
+            </div>
+            <div class="image">
+              <img src="./assets/images/user/create-playlist.PNG" alt="" />
+            </div>
+
+
+            <div class="image construction">
+              <img src="./assets/images/user/Estamos-em-Construção.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
